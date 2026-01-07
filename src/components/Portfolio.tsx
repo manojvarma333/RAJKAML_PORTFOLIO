@@ -10,7 +10,8 @@ interface Project {
   description: string;
   platform: string;
   style: string;
-  videoUrl?: string;
+  videoUrl: string;
+  embedUrl?: string;
 }
 
 const Portfolio = () => {
@@ -31,6 +32,7 @@ const Portfolio = () => {
       platform: 'Instagram',
       style: 'Reels, Temple Film',
       videoUrl: 'https://www.instagram.com/gangsters_of_kl/reel/DSsbW3YAekK/',
+      embedUrl: 'https://www.instagram.com/reel/DSsbW3YAekK/embed'
     },
     {
       id: 8,
@@ -44,6 +46,7 @@ const Portfolio = () => {
       platform: 'Instagram',
       style: 'Reels, Fashion Show',
       videoUrl: 'https://www.instagram.com/kl_vastraa/reel/DSjWCVukgph/',
+      embedUrl: 'https://www.instagram.com/reel/DSjWCVukgph/embed'
     },
     {
       id: 9,
@@ -56,6 +59,7 @@ const Portfolio = () => {
       platform: 'YouTube',
       style: 'Cover Song, Music Video',
       videoUrl: 'https://www.youtube.com/watch?v=ER9sogxzpDI',
+      embedUrl: 'https://www.youtube.com/embed/ER9sogxzpDI'
     },
     {
       id: 10,
@@ -69,6 +73,7 @@ const Portfolio = () => {
       platform: 'Instagram',
       style: 'Reels, PR Story',
       videoUrl: 'https://www.instagram.com/reel/DQUJXQuktql/?igsh=MWprODN2ODk5Z2VoZg==',
+      embedUrl: 'https://www.instagram.com/reel/DQUJXQuktql/embed'
     },
     {
       id: 11,
@@ -81,7 +86,8 @@ const Portfolio = () => {
         'DTI Expo 5.0 at KL University was a huge success! The Y24 batch showcased their groundbreaking innovations crafted through a rigorous design thinking journey, from tech innovations to socially impactful designs.',
       platform: 'YouTube',
       style: 'Event Highlight, Showcase',
-      videoUrl: 'https://youtube.com/shorts/bsV7uR1Ul4U?feature=share',
+videoUrl: 'https://youtube.com/shorts/bsV7uR1Ul4U?feature=share',
+      embedUrl: 'https://www.youtube.com/embed/bsV7uR1Ul4U'
     },
   ];
 
@@ -178,12 +184,26 @@ const Portfolio = () => {
             className="max-w-5xl w-full bg-gray-900 border border-gray-800 overflow-hidden animate-scaleIn"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="aspect-video bg-black">
+            <div className="aspect-video bg-black relative group">
               <img
                 src={selectedProject.thumbnail}
                 alt={selectedProject.title}
                 className="w-full h-full object-cover"
               />
+              <a
+                href={selectedProject.videoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="w-20 h-20 rounded-full bg-red-600 flex items-center justify-center shadow-lg transform transition-transform duration-300 group-hover:scale-110">
+                  <Play className="w-8 h-8 text-white ml-1" fill="currentColor" />
+                </div>
+              </a>
+              <div className="absolute bottom-4 right-4 bg-black/70 text-white text-sm px-3 py-1 rounded">
+                Click to watch on {selectedProject.platform} →
+              </div>
             </div>
 
             <div className="p-8">
