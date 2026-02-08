@@ -35,17 +35,24 @@ const About = () => {
         <div className="text-center mb-16">
           <div className="inline-block">
             <h2 className="text-5xl md:text-7xl font-black text-white uppercase tracking-tighter mb-4">
-              The Story
+              About Me
             </h2>
             <div className="h-1 w-full bg-gradient-to-r from-transparent via-red-600 to-transparent" />
           </div>
         </div>
 
         <div className="max-w-4xl mx-auto mb-20">
-          <p className="text-xl md:text-2xl text-gray-300 text-center leading-relaxed font-light italic">
-            "From 0 to 19K subscribers. From raw footage to powerful stories.
-            Every frame tells a tale, every cut builds emotion."
-          </p>
+          <div className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-2xl p-8 md:p-12">
+            <div className="space-y-6 text-gray-300">
+              <p className="text-lg md:text-xl leading-relaxed">
+                I'm a Video Editor who enjoys turning raw footage into engaging and well-structured videos. I focus on clean cuts, smooth pacing, and maintaining a natural flow to ensure each video communicates its message clearly.
+              </p>
+              
+              <p className="text-lg md:text-xl leading-relaxed">
+                I've worked on promotional and event-based video projects with organizations such as KL CIIE and KL Focus. I aim to deliver polished, high-quality videos that meet client expectations.
+              </p>
+            </div>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

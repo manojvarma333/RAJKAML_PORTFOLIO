@@ -3,34 +3,34 @@ import { Calendar } from 'lucide-react';
 const Experience = () => {
   const experiences = [
     {
-      year: '2025',
-      title: 'Advanced Premiere Pro Mastery',
-      description: 'Completed comprehensive training from basic to advanced editing techniques',
-      highlight: 'Professional certification',
+      year: '2020',
+      title: 'Collaborated with GP English Grammar',
+      description: 'Contributed to growth from 0 to 19K subscribers through strategic video editing',
+      highlight: 'Major milestone achievement',
     },
     {
-      year: '2024',
+      year: '2023',
       title: 'Mentorship with Karthik Raghavarapu',
       description: 'Learned advanced storytelling and editing workflows from industry expert',
       highlight: 'YouTube optimization expert',
     },
     {
-      year: '2023',
+      year: '2024',
       title: 'Training with Tharun Speaks',
       description: 'Specialized training in content creation and audience engagement strategies',
       highlight: 'Content strategy & growth',
     },
     {
-      year: '2022-Present',
+      year: '2024',
       title: 'CIIE - Social & Digital Media Editor',
       description: 'Creating impactful content and managing campaigns for educational initiatives',
       highlight: 'Ongoing role',
     },
     {
-      year: '2021',
-      title: 'Collaborated with GP English Grammar',
-      description: 'Contributed to growth from 0 to 19K subscribers through strategic video editing',
-      highlight: 'Major milestone achievement',
+      year: '2024',
+      title: 'Advanced Premiere Pro Mastery',
+      description: 'Completed comprehensive training from basic to advanced editing techniques',
+      highlight: 'Professional certification',
     },
   ];
 
@@ -63,7 +63,7 @@ const Experience = () => {
                   animationDelay: `${index * 150}ms`,
                 }}
               >
-                <div className="absolute left-0 top-8 w-16 h-16 bg-gray-900 border-4 border-red-600 rounded-full flex items-center justify-center hidden md:flex group-hover:scale-110 group-hover:shadow-[0_0_30px_rgba(220,38,38,0.6)] transition-all duration-300">
+                <div className="absolute left-0 top-8 w-16 h-16 bg-gray-900 border-4 border-red-600 rounded-full items-center justify-center md:flex group-hover:scale-110 group-hover:shadow-[0_0_30px_rgba(220,38,38,0.6)] transition-all duration-300">
                   <Calendar className="w-6 h-6 text-red-600" />
                 </div>
 
@@ -92,7 +92,7 @@ const Experience = () => {
                   <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-red-600 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
                 </div>
 
-                <div className="absolute -left-2 top-8 w-4 h-4 bg-red-600 rounded-full animate-pulse hidden md:block" />
+                <div className="absolute -left-2 top-8 w-4 h-4 bg-red-600 rounded-full animate-pulse md:block" />
               </div>
             ))}
           </div>

@@ -14,7 +14,15 @@ const Contact = () => {
 
     const { name, email, message } = formData;
 
+    // Basic validation
+    if (!name || !email || !message) {
+      alert('Please fill in all fields before sending.');
+      return;
+    }
+
     try {
+      console.log('Sending form data:', { name, email, message });
+      
       const response = await fetch('https://formspree.io/f/mzdzndpa', {
         method: 'POST',
         headers: {
@@ -28,9 +36,17 @@ const Contact = () => {
         }),
       });
 
+      console.log('Response status:', response.status);
+      console.log('Response ok:', response.ok);
+
       if (!response.ok) {
-        throw new Error('Failed to send message');
+        const errorData = await response.json();
+        console.error('Error response:', errorData);
+        throw new Error(`Failed to send message: ${response.status}`);
       }
+
+      const responseData = await response.json();
+      console.log('Success response:', responseData);
 
       setSubmitted(true);
       setTimeout(() => {
@@ -39,7 +55,7 @@ const Contact = () => {
       }, 3000);
     } catch (error) {
       console.error('Error submitting contact form:', error);
-      alert('Something went wrong while sending your message. Please try again later or email me directly at rajkamaledits@gmail.com.');
+      alert(`Something went wrong while sending your message: ${error instanceof Error ? error.message : 'Unknown error'}. Please try again later or email me directly at rajkamaledits@gmail.com.`);
     }
   };
 
@@ -59,7 +75,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="relative bg-black py-24 md:py-32 overflow-hidden">
+    <section className="relative bg-black py-24 md:py-32 overflow-hidden">
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-red-600 rounded-full filter blur-[200px]" />
       </div>

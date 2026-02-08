@@ -30,6 +30,14 @@ const Hero = () => {
 
       <div className="relative z-20 h-full flex flex-col items-center justify-center text-center px-6">
         <div className="space-y-6 animate-fadeInUp">
+          <div className="overflow-hidden animate-fadeIn">
+            <img 
+              src="/thumbnails/3.png" 
+              alt="RAJKAMAL" 
+              className="h-32 w-32 md:h-40 md:w-40 object-cover rounded-full mx-auto"
+            />
+          </div>
+          
           <div className="overflow-hidden">
             <h1 className="text-7xl md:text-9xl font-black tracking-tighter text-white uppercase animate-slideDown">
               Rajkamal

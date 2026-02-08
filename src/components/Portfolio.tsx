@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Play, X } from 'lucide-react';
 
 interface Project {
@@ -17,6 +17,18 @@ interface Project {
 const Portfolio = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  useEffect(() => {
+    if (selectedProject) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedProject]);
 
   const categories = ['All', 'YouTube', 'Shorts/Reels'];
 
@@ -55,7 +67,7 @@ const Portfolio = () => {
       category: 'YouTube',
       // local thumbnail image
       thumbnail: '/thumbnails/anuvanuvu-cover.jpg',
-      description: 'I will edit this message again',
+      description: 'Anuvanuvuu cover song has been a really special experience. From capturing the right mood during the shoot to shaping the story in the edit, everything was driven by the emotion of the music. This project taught me how small visual details can elevate a song. Seeing the final video come together and connect with people made it all worthwhile.',
       platform: 'YouTube',
       style: 'Cover Song, Music Video',
       videoUrl: 'https://www.youtube.com/watch?v=ER9sogxzpDI',
@@ -170,7 +182,7 @@ videoUrl: 'https://youtube.com/shorts/bsV7uR1Ul4U?feature=share',
 
       {selectedProject && (
         <div
-          className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-6 animate-fadeIn"
+          className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-6 animate-fadeIn overflow-y-auto"
           onClick={() => setSelectedProject(null)}
         >
           <button
