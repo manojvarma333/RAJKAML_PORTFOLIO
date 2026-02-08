@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Mail, Phone, Send } from 'lucide-react';
+import { Mail, Phone, Send, MessageCircle, MessageSquare, Instagram } from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -74,6 +74,28 @@ const Contact = () => {
     },
   ];
 
+  const socialLinks = [
+    {
+      icon: MessageCircle,
+      label: 'WhatsApp',
+      href: 'https://wa.me/919949592762?text=Hello%20I%20am%20contacting%20you',
+      isWhatsApp: true,
+      logoSrc: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg',
+    },
+    {
+      icon: MessageSquare,
+      label: 'Telegram',
+      href: 'https://t.me/rajkamal03',
+      logoSrc: 'https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg',
+    },
+    {
+      icon: Instagram,
+      label: 'Instagram',
+      href: 'https://www.instagram.com/rajkamal_04?igsh=OWQ0cjdybmd1bjh0',
+      logoSrc: 'https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg',
+    },
+  ];
+
   return (
     <section className="relative bg-black py-24 md:py-32 overflow-hidden">
       <div className="absolute inset-0 opacity-10">
@@ -141,6 +163,32 @@ const Contact = () => {
                   Promotional Videos & Ads
                 </li>
               </ul>
+            </div>
+
+            {/* Social Media Links */}
+            <div className="pt-8">
+              <h4 className="text-xl font-bold text-white mb-6">Connect With Me</h4>
+              <div className="flex flex-wrap gap-4">
+                {socialLinks.map((social, index) => (
+                  <a
+                    key={index}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative p-3 bg-gray-900/50 border border-gray-800 rounded-lg transition-all duration-300 hover:border-red-600 hover:bg-gray-900/80 hover:scale-110 hover:shadow-[0_0_20px_rgba(220,38,38,0.3)]"
+                  >
+                    {social.logoSrc ? (
+                      <img 
+                        src={social.logoSrc} 
+                        alt={social.label}
+                        className="w-8 h-8 object-contain"
+                      />
+                    ) : (
+                      <social.icon className="w-6 h-6 text-gray-400 group-hover:text-red-500 transition-colors duration-300" />
+                    )}
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
 

@@ -34,7 +34,7 @@ const Hero = () => {
             <img 
               src="/thumbnails/3.png" 
               alt="RAJKAMAL" 
-              className="h-32 w-32 md:h-40 md:w-40 object-cover rounded-full mx-auto"
+              className="h-48 w-48 md:h-56 md:w-56 object-cover rounded-full mx-auto"
             />
           </div>
           
@@ -49,7 +49,7 @@ const Hero = () => {
           </div>
 
           <div className="overflow-hidden">
-            <p className="text-2xl md:text-4xl font-light text-gray-300 tracking-wide animate-slideUp animation-delay-300">
+            <p className="text-2xl md:text-4xl font-bold text-gray-300 tracking-wide animate-slideUp animation-delay-300">
               Video Editor
             </p>
           </div>

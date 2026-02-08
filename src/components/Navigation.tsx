@@ -8,8 +8,21 @@ const Navigation = () => {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
+      
+      // Add scroll animations to sections
+      const sections = document.querySelectorAll('section');
+      sections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+        
+        if (isVisible && !section.classList.contains('animate-in')) {
+          section.classList.add('animate-in');
+        }
+      });
     };
+    
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check on initial load
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -31,7 +44,7 @@ const Navigation = () => {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      scrolled ? 'bg-black/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
+      scrolled ? 'bg-black/95 backdrop-blur-md shadow-lg' : 'bg-black/80 backdrop-blur-sm'
     }`}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex justify-center items-center h-16">
